@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matěj Kurka | Portfolio</title>
+    <meta name="description" content="Portfolio Matěje Kůrky - Digitální tvorba, vývoj her a programování.">
+    <meta name="keywords" content="Matěj Kurka, Portfolio, Vývoj her, C#, Godot, Programování">
+    <meta name="author" content="Matěj Kurka">
+    <meta property="og:title" content="Matěj Kurka | Portfolio">
+    <meta property="og:description" content="Portfolio 15letého vývojáře a studenta se zájmem o moderní technologie.">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="data:,">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --bg-color: #ffffff;
+    --bg-alt: #fbfbfb;
+    --text-color: #1a1a1a;
+    --muted-color: #666666;
+    --accent-color: #0070f3;
+    --accent-glow: rgba(0, 112, 243, 0.1);
+    --border-color: #eaeaea;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --max-width: 850px;
+    --section-gap: 4rem;
+    --radius: 0px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Lightbox Rotation Utilities */
+.lb-rotate-90 {
+    transform: rotate(-90deg);
+}
+
+.lb-rotate-180 {
+    transform: rotate(180deg);
+}
+
+.lb-rotate-270 {
+    transform: rotate(90deg);
+}
+
+body.dark-mode {
+    --bg-color: #0a0a0a;
+    --bg-alt: #0d0d0d;
+    --text-color: #ededed;
+    --muted-color: #a0a0a0;
+    --accent-color: #3291ff;
+    --accent-glow: rgba(50, 145, 255, 0.15);
+    --border-color: #333333;
+    --shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 15px;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Header & Nav */
+.header {
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .header {
+    background: rgba(10, 10, 10, 0.8);
+}
+
+.header.scrolled {
+    padding: 1rem 0;
+    border-bottom-color: var(--border-color);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.btn-toggle {
+    background: none;
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.btn-toggle:hover {
+    background: var(--bg-alt);
+    border-color: var(--accent-color);
+}
+
+/* Hero Section */
+.hero {
+    padding: 6rem 0 3rem;
+    text-align: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    background: var(--accent-glow);
+    color: var(--accent-color);
+    border-radius: var(--radius);
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #0070f3, #7928ca);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: var(--accent-color);
+    color: white;
+    padding: 1rem 2.2rem;
+    border-radius: var(--radius);
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px 0 rgba(0, 118, 255, 0.39);
+}
+
+.btn-primary:hover {
+    background: #0060df;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 118, 255, 0.23);
+}
+
+body.dark-mode .btn-primary {
+    box-shadow: 0 4px 14px 0 rgba(50, 145, 255, 0.3);
+}
+
+/* Sections */
+.section {
+    padding: var(--section-gap) 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.section.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-alt {
+    background-color: var(--bg-alt);
+}
+
+.section-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--muted-color);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-color);
+}
+
+/* Journey / Achievements List */
+.journey-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.journey-item {
+    background: var(--bg-alt);
+    padding: 2rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.journey-item:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+.journey-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.journey-content ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.journey-content li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    color: var(--muted-color);
+    line-height: 1.6;
+}
+
+.journey-content li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.journey-content li strong {
+    color: var(--text-color);
+}
+
+.journey-content a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-left: 0.3rem;
+    opacity: 0.8;
+}
+
+.journey-content a:hover {
+    text-decoration: underline;
+    opacity: 1;
+}
+
+/* Projects */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 1.8rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: var(--accent-color);
+}
+
+.project-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+}
+
+.project-desc {
+    color: var(--muted-color);
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    flex-grow: 1;
+}
+
+.project-tags {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: var(--bg-alt);
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Diplomas Slider */
+.slider-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.slider-container {
+    overflow-x: hidden;
+    padding: 2rem 0;
+    width: 100%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    cursor: grab;
+    scroll-behavior: auto;
+}
+
+.slider-container.no-transition {
+    scroll-behavior: auto !important;
+}
+
+.slider-container::-webkit-scrollbar {
+    display: none;
+}
+
+.slider {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 1rem;
+    width: max-content;
+}
+
+.slider-arrow {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    width: 45px;
+    height: 45px;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    box-shadow: var(--shadow);
+}
+
+body.dark-mode .slider-arrow {
+    background: rgba(20, 20, 20, 0.8);
+}
+
+.slider-arrow:hover {
+    background: var(--accent-color);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-arrow.prev {
+    left: -22px;
+}
+
+.slider-arrow.next {
+    right: -22px;
+}
+
+@media (max-width: 768px) {
+    .slider-arrow {
+        display: none;
+    }
+
+    .slider-container {
+        overflow-x: auto;
+    }
+}
+
+.diploma-card {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    width: 280px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    opacity: 0.6;
+    transform: scale(0.85);
+}
+
+.diploma-card.active {
+    opacity: 1;
+    transform: scale(1.05);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+body.dark-mode .diploma-card.active {
+    box-shadow: 0 10px 30px rgba(32, 145, 255, 0.2);
+}
+
+.diploma-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px) scale(0.95);
+}
+
+.diploma-card.active:hover {
+    transform: translateY(-5px) scale(1.08);
+}
+
+.diploma-year {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.diploma-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.diploma-card p {
+    font-size: 0.9rem;
+    color: var(--muted-color);
+}
+
+.diploma-preview {
+    width: 100%;
+    aspect-ratio: 1.414/1;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding: 1.5rem;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+}
+
+.diploma-preview:has(.preview-img) .cert-lines,
+.diploma-preview:has(.preview-img) .cert-stamp {
+    display: none;
+}
+
+.rotate-180 {
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.rotate-90 {
+    transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.rotate-270 {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.diploma-preview:hover {
+    transform: scale(1.02);
+}
+
+.cert-lines {
+    width: 60%;
+    height: 4px;
+    background: #f0f0f0;
+    margin-bottom: 10px;
+    border-radius: 2px;
+}
+
+.cert-lines::after {
+    content: '';
+    display: block;
+    width: 80%;
+    height: 4px;
+    background: #f0f0f0;
+    margin-top: 8px;
+    border-radius: 2px;
+}
+
+.cert-stamp {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 30px;
+    height: 30px;
+    border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.cert-stamp::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    background: var(--accent-color);
+    border-radius: 50%;
+}
+
+.cert-purple {
+    border-left: 4px solid #7928ca;
+}
+
+.cert-green {
+    border-left: 4px solid #10b981;
+}
+
+.cert-gold {
+    border-left: 4px solid #f59e0b;
+}
+
+.cert-blue {
+    border-left: 4px solid #3b82f6;
+}
+
+.cert-cyan {
+    border-left: 4px solid #06b6d4;
+}
+
+/* Skills */
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.skill-item {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: var(--radius);
+    text-align: center;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.skill-item:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+/* Contacts */
+.contact-links {
+    margin: 0 auto;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    color: var(--text-color);
+    transition: all 0.2s ease;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+}
+
+.social-btn:hover {
+    background: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+.social-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+.social-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    transition: all 0.2s ease;
+    /* Make it black by default to match text */
+    filter: brightness(0);
+    opacity: 0.8;
+}
+
+/* On hover, make it white */
+.social-btn:hover .social-img {
+    filter: brightness(0) invert(1);
+    opacity: 1;
+}
+
+/* In dark mode, make it white */
+body.dark-mode .social-img {
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+}
+
+/* Footer */
+.footer {
+    padding: 4rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    color: var(--muted-color);
+    font-size: 0.9rem;
+}
+
+/* Dark Mode Overrides for Specific Elements */
+body.dark-mode .section-alt {
+    background-color: var(--bg-alt);
+}
+
+body.dark-mode .project-card,
+body.dark-mode .diploma-card,
+body.dark-mode .skill-item,
+body.dark-mode .contact-card {
+    background: #111;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --section-gap: 4rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-list {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+}
+
+/* Accessibility & Utility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent-color);
+    color: white;
+    padding: 8px;
+    z-index: 1000;
+    transition: top 0.2s;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.project-card--static {
+    cursor: default;
+}
+
+.project-card--static:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--border-color);
+}
+
+/* Lightbox */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(5px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    transition: none !important;
+    /* animation: scaleIn 0.3s ease; - Removed to fix rotation conflict */
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#lightbox-caption {
+    margin-top: 1rem;
+    color: white;
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 80%;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    line-height: 1;
+}
+
+.lightbox-close:hover,
+.lightbox-close:focus {
+    color: var(--accent-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Improve Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-alt);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #bbb;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: #444;
+}
+
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Selection */
+::selection {
+    background: var(--accent-color);
+    color: white;
+}
+</style>
+</head>
+
+<body class="default-view">
+    <a href="#projects" class="skip-link">Přeskočit na obsah</a>
+    <header class="header" id="navbar">
+        <div class="container nav-content">
+            <h1 class="name">Matěj Kurka</h1>
+            <button id="style-toggle" class="btn-toggle">Tmavý režim</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero container">
+            <h1>Digitální tvorba & <br><span class="gradient-text">vývoj her</span></h1>
+            <p class="hero-subtext">Jsem 15letý student se zájmem o moderní technologie. Moje cesta začala zvědavostí a
+                pokračuje tvorbou projektů, které mě baví.</p>
+        </section>
+
+        <section id="projects" class="section section-alt">
+            <div class="container">
+                <h2 class="section-title">Projekty</h2>
+                <div class="projects-grid">
+                    <a href="https://github.com/MatejKurka/Algorithms" target="_blank" rel="noopener noreferrer"
+                        class="project-card">
+                        <h3>Algoritmy</h3>
+                        <p class="project-desc">Kolekce algoritmů a v C# programovaných v jazyce C#. Od řazení
+                            až po vyhledávání v grafech.</p>
+                        <div class="project-tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">Algorithms</span>
+                            <span class="tag">Education</span>
+                        </div>
+                    </a>
+
+                    <a href="https://github.com/MatejKurka/Mnau-game" target="_blank" rel="noopener noreferrer"
+                        class="project-card">
+                        <h3>MeowCatGame</h3>
+                        <p class="project-desc">Strategická hra inspirovaná stolní hrou Boop v česku známá jako "Mňau!".
+                            Implementace komplexní
+                            logiky odstrkování koček na poli.</p>
+                        <div class="project-tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">Game Design</span>
+                            <span class="tag">Strategy</span>
+                        </div>
+                    </a>
+                    <a href="https://inside-kaufland.itch.io/aliroc" target="_blank" rel="noopener noreferrer"
+                        class="project-card">
+                        <h3>Aliroc</h3>
+                        <p class="project-desc">Pixel art skákačka vytvořená v Godot engine. Příběh o králi, který se
+                            vydává zachránit svou kočku před armádou blobů.</p>
+                        <div class="project-tags">
+                            <span class="tag">Godot</span>
+                            <span class="tag">Pixel Art</span>
+                            <span class="tag">Adventure</span>
+                        </div>
+                    </a>
+                    <a href="https://github.com/MatejKurka/remote-explorer-game" target="_blank"
+                        rel="noopener noreferrer" class="project-card">
+                        <h3>Remote Explorer Game</h3>
+                        <p class="project-desc">Vypomoc na projektu Remote Explorer Game. Hra je zaměřený na průzkum a
+                            interakci s minami.</p>
+                        <div class="project-tags">
+                            <span class="tag">C#</span>
+                            <span class="tag">Vypomoc</span>
+                            <span class="tag">Experiment</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="journey" class="section">
+            <div class="container">
+                <h2 class="section-title">Matěj's Journey</h2>
+                <div class="journey-list">
+                    <!-- Soutěže -->
+                    <div class="journey-item">
+                        <div class="journey-content">
+                            <h3>Soutěže</h3>
+                            <ul>
+                                <li><strong>Roboquest 2025</strong> – soutěž v programování C#, 3. místo <a
+                                        href="https://roboquest.cz/#top" target="_blank"
+                                        rel="noopener noreferrer">[Web]</a></li>
+                                <li><strong>Scratch Up 2025</strong> – celostátní umístění na děleném 6.–8. místě (327
+                                    soutěžících ze 48 škol v ČR) <a href="http://www.scratchcup.cz/o-soutezi/"
+                                        target="_blank" rel="noopener noreferrer">[Web]</a></li>
+                                <li><strong>PC soutěž Aplikační software</strong> – 2. místo, obvodní kolo Praha 4,
+                                    diplom <a
+                                        href="https://zsjilovska.cz/aktuality/vysledky-pc-souteze-aplikacni-software"
+                                        target="_blank" rel="noopener noreferrer">[Web]</a></li>
+                                <li><strong>Minecraft Future Factory</strong> (2018–2019) – 1. místo – tým Super
+                                    Minecrafťáci – ZŠ Škola Můj Projekt <a
+                                        href="https://futurefactory.nvias.org/2018-2019/" target="_blank"
+                                        rel="noopener noreferrer">[Web]</a> <a
+                                        href="https://www.youtube.com/watch?v=TQCrZZspMyM&amp;list=PLbbLzCMXbT-vzLuPkCiXHoS9DyH0BjwcH&amp;index=12"
+                                        target="_blank" rel="noopener noreferrer">[Video]</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Programování -->
+                    <div class="journey-item">
+                        <div class="journey-content">
+                            <h3>Programování, AI, Kyberbezpečnost</h3>
+                            <ul>
+                                <li><strong>od 2023 do teď</strong> – DDM Praha 4, kroužek Programování v C# (pokročilí)
+                                </li>
+                                <li><strong>2025</strong> – Letní škola kybernetické bezpečnosti SSPŠ</li>
+                                <li><strong>2025</strong> – Letní škola počítačových sítí SSPŠ</li>
+                                <li><strong>2024</strong> – Příměstský tábor s umělou inteligencí (AI dětem)</li>
+                                <li><strong>2023</strong> – Letní škola umělé inteligence SSPŠ</li>
+                                <li><strong>2023</strong> – Letní škola vývoj počítačových her SSPŠ</li>
+                                <li><strong>2022</strong> – Herním vývojářem v engine Godot – certifikát o absolvování
+                                </li>
+                                <li><strong>2021</strong> – Projektový příměstský tábor s umělou inteligencí – diplom o
+                                    absolvování</li>
+                                <li><strong>2019 – 2021</strong> – Příměstské letní tábory Programování v Minecraftu /
+                                    Minecraft Metaverse, na ZŠ Vitae (Nvias, Eva Nečasová)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Robotika -->
+                    <div class="journey-item">
+                        <div class="journey-content">
+                            <h3>Robotika a technické vzdělávání</h3>
+                            <ul>
+                                <li><strong>2025</strong> – Příměstský tábor Hardware SSPŠ</li>
+                                <li><strong>2025 a 2024</strong> – DDM Praha 4, týdenní tábor LEGO robotika</li>
+                                <li><strong>2023</strong> – robotický příměstský tabor SSPŠ</li>
+                                <li><strong>2021–2022</strong> – Celorořní kroužek Robotika (ZŠ Vitae)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Další -->
+                    <div class="journey-item">
+                        <div class="journey-content">
+                            <h3>Další technické vzdělávací programy</h3>
+                            <ul>
+                                <li><strong>2023</strong> – Dětská univerzita ČVUT (titul Malý inženýr - Ing. Jr. 😊 ,
+                                    závěrečná práce na téma jaderná fúze)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="hobbies" class="section section-alt">
+            <div class="container">
+                <h2 class="section-title">Koníčky</h2>
+                <div class="projects-grid">
+                    <div class="project-card project-card--static">
+                        <h3>Lezení</h3>
+                        <p class="project-desc">Bouldering i lezení s lanem. Můj způsob, jak si vyčistit hlavu a
+                            překonávat vlastní limity v přírodě i na stěně.</p>
+                        <div class="project-tags">
+                            <span class="tag">Bouldering</span>
+                            <span class="tag">Nature</span>
+                        </div>
+                    </div>
+                    <div class="project-card project-card--static">
+                        <h3>Programování</h3>
+                        <p class="project-desc">Kromě práce na projektech mě baví objevovat nové technologie a
+                            algoritmy, které mi pomáhají řešit komplexní problémy.</p>
+                        <div class="project-tags">
+                            <span class="tag">Continuous Learning</span>
+                            <span class="tag">Problem Solving</span>
+                        </div>
+                    </div>
+                    <div class="project-card project-card--static">
+                        <h3>Jezdění na kole</h3>
+                        <p class="project-desc">Rychlost i vytrvalost. Kolo je pro mě ideální kombinací sportu a svobody
+                            pohybu v jakémkoliv terénu.</p>
+                        <div class="project-tags">
+                            <span class="tag">Active Life</span>
+                            <span class="tag">Cycling</span>
+                        </div>
+                    </div>
+                    <div class="project-card project-card--static">
+                        <h3>Hraní videoher</h3>
+                        <p class="project-desc">Od dětství mě fascinují herní mechaniky a příběhy, což mě v konečném
+                            důsledku přivedlo i k samotnému hernímu vývoji.</p>
+                        <div class="project-tags">
+                            <span class="tag">Gaming</span>
+                            <span class="tag">Motivation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="diplomas" class="section">
+            <div class="container">
+                <h2 class="section-title">Diplomy & Certifikáty</h2>
+                <div class="slider-wrapper">
+                    <button class="slider-arrow prev" aria-label="Předchozí">←</button>
+                    <div class="slider-container">
+                        <div class="slider">
+                            <div class="diploma-card">
+                                <div class="diploma-preview" data-title="Roboquest 2025" data-year="2025"
+                                    data-desc="3. místo v programování v C#">
+                                    <div class="cert-lines"></div>
+                                    <div class="cert-stamp"></div>
+                                </div>
+                                <span class="diploma-year">2025</span>
+                                <h3>Roboquest 2025</h3>
+                                <p>3. místo v programování v C#</p>
+                            </div>
+                            <div class="diploma-card">
+                                <div class="diploma-preview cert-purple" data-title="Scratch Up 2025" data-year="2025"
+                                    data-desc="6.–8. místo v ČR (z 327 soutěžících)">
+                                    <div class="cert-lines"></div>
+                                    <div class="cert-stamp"></div>
+                                </div>
+                                <span class="diploma-year">2025</span>
+                                <h3>Scratch Up 2025</h3>
+                                <p>6.–8. místo v ČR (z 327 soutěžících)</p>
+                            </div>
+                            <div class="diploma-card">
+                                <div class="diploma-preview cert-blue" data-title="Letní škola poč. sítí"
+                                    data-year="2025" data-desc="Osvědčení o absolvování - SSPŠ"
+                                    data-image="Diplomy/images/20260210_203626_page_6.png">
+                                    <img src="Diplomy/images/20260210_203626_page_6.png" alt="Letní škola poč. sítí"
+                                        class="preview-img rotate-90">
+                                </div>
+                                <span class="diploma-year">2025</span>
+                                <h3>Počítačové sítě</h3>
+                                <p>Letní škola SSPŠ</p>
+                            </div>
+                            <div class="diploma-card">
+                                <div class="diploma-preview cert-green" data-title="PC soutěž Asp." data-year="2025"
+                                    data-desc="2. místo, obvodní kolo Praha 4"
+                                    data-image="Diplomy/images/20260210_203626_page_9.png">
+                                    <img src="Diplomy/images/20260210_203626_page_9.png" alt="PC soutěž Asp."
+                                        class="preview-img">
+                                </div>
+                                <span class="diploma-year">2025</span>
+                                <h3>Soutěž aplikační software</h3>
+                                <p>2. místo, obvodní kolo Praha 4</p>
+                            </div>
+                            <div class="diploma-card">
+                                <div class="diploma-preview cert-gold" data-title="ČVUT - Ing. Jr." data-year="2023"
+                                    data-desc="Titul Malý inženýr (Dětská univerzita)"
+                                    data-image="Diplomy/images/20260210_203626_page_5.png">
+                                    <img src="Diplomy/images/20260210_203626_page_5.png" alt="ČVUT - Ing. Jr."
+                                        class="preview-img rotate-90">
+                                </div>
+                                <span class="diploma-year">2023</span>
+                                <h3>ČVUT - Ing. Jr.</h3>
+                                <p>Titul Malý inženýr</p>
+                            </div>
+                            <div class="diploma-card">
+                                <div class="diploma-preview cert-blue" data-title="Godot Engine" data-year="2022"
+                                    data-desc="Certifikát - Herní vývojář"
+                                    data-image="Diplomy/images/20260210_203626_page_7.png">
+                                    <img src="Diplomy/images/20260210_203626_page_7.png" alt="Godot Engine"
+                                        class="preview-img rotate-270">
+                                </div>
+                                <span class="diploma-year">2022</span>
+                                <h3>Godot Engine</h3>
+                                <p>Certifikát - Herní vývojář</p>
+                            </div>
+                            <div class="diploma-card">
+                                <div class="diploma-preview cert-cyan" data-title="Lezení - Challenge" data-year="2023"
+                                    data-desc="Kozelka Climbing Challenge - King"
+                                    data-image="Diplomy/images/20260210_204123_page_1.png">
+                                    <img src="Diplomy/images/20260210_204123_page_1.png"
+                                        alt="Kozelka Climbing Challenge" class="preview-img">
+                                </div>
+                                <span class="diploma-year">2023</span>
+                                <h3>Kozelka Climbing</h3>
+                                <p>Climbing Challenge - King</p>
+                            </div>
+                            <div class="diploma-card">
+                                <div class="diploma-preview cert-cyan" data-title="Letní škola robotiky"
+                                    data-year="2022" data-desc="Osvědčení o absolvování"
+                                    data-image="Diplomy/images/20260210_203626_page_1.png">
+                                    <img src="Diplomy/images/20260210_203626_page_1.png" alt="Letní škola robotiky"
+                                        class="preview-img rotate-180">
+                                </div>
+                                <span class="diploma-year">2022</span>
+                                <h3>Letní škola robotiky</h3>
+                                <p>Osvědčení o absolvování</p>
+                            </div>
+                            <div class="diploma-card">
+                                <div class="diploma-preview cert-purple" data-title="Tábor s AI" data-year="2021"
+                                    data-desc="Projektový tábor s AI"
+                                    data-image="Diplomy/images/20260210_203626_page_3.png">
+                                    <img src="Diplomy/images/20260210_203626_page_3.png" alt="Tábor s AI"
+                                        class="preview-img rotate-270">
+                                </div>
+                                <span class="diploma-year">2021</span>
+                                <h3>Tábor s AI</h3>
+                                <p>Projektový tábor</p>
+                            </div>
+                            <div class="diploma-card">
+                                <div class="diploma-preview cert-cyan" data-title="Future Factory" data-year="2019"
+                                    data-desc="1. místo, tým Super Minecrafťáci"
+                                    data-image="Diplomy/images/20260210_203626_page_8.png">
+                                    <img src="Diplomy/images/20260210_203626_page_8.png" alt="Future Factory"
+                                        class="preview-img rotate-270">
+                                </div>
+                                <span class="diploma-year">2019</span>
+                                <h3>Future Factory</h3>
+                                <p>1. místo v Minecraftu</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="slider-arrow next" aria-label="Další">→</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section section-alt">
+            <div class="container">
+                <h2 class="section-title">Schopnosti</h2>
+                <ul class="skills-list">
+                    <li class="skill-item">C#</li>
+                    <li class="skill-item">Robotika</li>
+                    <li class="skill-item">Godot</li>
+                    <li class="skill-item">Canva</li> 
+                    <li class="skill-item">Game design</li>
+                    <li class="skill-item">Python</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Kontakt</h2>
+                <div class="social-links">
+                    <button id="copy-phone" class="social-btn" aria-label="Kopírovat telefon" title="606 412 405">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <a href="https://github.com/matejkurka" target="_blank" rel="noopener noreferrer" class="social-btn"
+                        aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 11.61 6.44 11.85V19">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="https://scratch.mit.edu/users/matej-lol-123/" target="_blank" rel="noopener noreferrer"
+                        class="social-btn" aria-label="Scratch">
+                        <img src="https://cdn.simpleicons.org/scratch" alt="Scratch" class="social-img">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Matěj Kurka</p>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" aria-label="Zavřít">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Certifikát">
+        <div id="lightbox-caption"></div>
+    </div>
+
+    <script>document.addEventListener('DOMContentLoaded', () => {
+    // Style Toggle
+    const toggleBtn = document.getElementById('style-toggle');
+    const body = document.body;
+
+    // Load saved preference
+    if (localStorage.getItem('dark-mode') === 'true') {
+        body.classList.add('dark-mode');
+        if (toggleBtn) toggleBtn.textContent = 'Světlý režim';
+    }
+
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            const isDarkMode = body.classList.toggle('dark-mode');
+            localStorage.setItem('dark-mode', isDarkMode);
+            toggleBtn.textContent = isDarkMode ? 'Světlý režim' : 'Tmavý režim';
+        });
+    }
+
+    // Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // Intersection Observer for Scroll Reveal
+    const revealOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, revealOptions);
+
+    document.querySelectorAll('.section').forEach(section => {
+        revealObserver.observe(section);
+    });
+
+
+
+    // Diploma Slider
+    const sliderContainer = document.querySelector('.slider-container');
+    const slider = document.querySelector('.slider');
+    const prevBtn = document.querySelector('.slider-arrow.prev');
+    const nextBtn = document.querySelector('.slider-arrow.next');
+
+    if (sliderContainer && slider) {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        let isMoving = false;
+
+        // Clone items for infinite loop
+        const cards = Array.from(slider.children);
+        cards.forEach(card => {
+            const clone = card.cloneNode(true);
+            slider.appendChild(clone);
+        });
+        cards.reverse().forEach(card => {
+            const clone = card.cloneNode(true);
+            slider.insertBefore(clone, slider.firstChild);
+        });
+
+        const cardWidth = cards[0].offsetWidth + 24; // width + gap
+        const totalCardsWidth = cardWidth * cards.length;
+
+        // Initial position (center set)
+        sliderContainer.scrollLeft = totalCardsWidth;
+
+        const highlightCenter = () => {
+            const containerCenter = sliderContainer.scrollLeft + (sliderContainer.offsetWidth / 2);
+            let minDistance = Infinity;
+            let centerIdx = -1;
+
+            const currentCards = slider.querySelectorAll('.diploma-card');
+            currentCards.forEach((card, idx) => {
+                const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
+                const distance = Math.abs(containerCenter - cardCenter);
+
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    centerIdx = idx;
+                }
+            });
+
+            currentCards.forEach((card, idx) => {
+                if (idx === centerIdx) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+        };
+
+        const checkLoop = () => {
+            if (sliderContainer.scrollLeft <= 5) {
+                sliderContainer.classList.add('no-transition');
+                sliderContainer.scrollLeft = totalCardsWidth;
+                sliderContainer.classList.remove('no-transition');
+            } else if (sliderContainer.scrollLeft >= totalCardsWidth * 2 - 5) {
+                sliderContainer.classList.add('no-transition');
+                sliderContainer.scrollLeft = totalCardsWidth;
+                sliderContainer.classList.remove('no-transition');
+            }
+            highlightCenter();
+        };
+
+        const moveSlider = (direction) => {
+            const currentCards = Array.from(slider.querySelectorAll('.diploma-card'));
+            const activeCard = slider.querySelector('.diploma-card.active');
+            let targetIdx = currentCards.indexOf(activeCard) + direction;
+
+            if (targetIdx >= 0 && targetIdx < currentCards.length) {
+                const targetCard = currentCards[targetIdx];
+                // Calculate scroll position to center the target card
+                const targetScroll = targetCard.offsetLeft - (sliderContainer.offsetWidth - targetCard.offsetWidth) / 2;
+
+                sliderContainer.scrollLeft = targetScroll;
+                highlightCenter();
+                checkLoop();
+            }
+        };
+
+        if (prevBtn) prevBtn.addEventListener('click', () => moveSlider(-1));
+        if (nextBtn) nextBtn.addEventListener('click', () => moveSlider(1));
+
+        sliderContainer.addEventListener('mousedown', (e) => {
+            isDown = true;
+            sliderContainer.style.cursor = 'grabbing';
+            sliderContainer.classList.add('no-transition');
+            startX = e.pageX - sliderContainer.offsetLeft;
+            scrollLeft = sliderContainer.scrollLeft;
+        });
+
+        sliderContainer.addEventListener('mouseleave', () => {
+            isDown = false;
+            sliderContainer.style.cursor = 'grab';
+            sliderContainer.classList.remove('no-transition');
+            checkLoop();
+        });
+
+        sliderContainer.addEventListener('mouseup', () => {
+            isDown = false;
+            sliderContainer.style.cursor = 'grab';
+            sliderContainer.classList.remove('no-transition');
+            checkLoop();
+        });
+
+        sliderContainer.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - sliderContainer.offsetLeft;
+            const walk = (x - startX) * 2;
+            sliderContainer.scrollLeft = scrollLeft - walk;
+            highlightCenter();
+        });
+
+        // Loop check on scroll for manual/drag moves
+        sliderContainer.addEventListener('scroll', () => {
+            if (!isMoving && !isDown) {
+                highlightCenter();
+                if (sliderContainer.scrollLeft <= 10 || sliderContainer.scrollLeft >= totalCardsWidth * 2 - 10) {
+                    checkLoop();
+                }
+            }
+        });
+
+        // Initialize display
+        setTimeout(highlightCenter, 100);
+    }
+
+    // Lightbox Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.querySelector('.lightbox-close');
+
+    if (lightbox) {
+        // Open lightbox on diploma click
+        // Using delegation or selecting all previews
+        document.querySelectorAll('.diploma-preview').forEach(preview => {
+            preview.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent bubbling if needed
+
+                // Get data from data-attribute or find inner image
+                const title = preview.getAttribute('data-title');
+                const desc = preview.getAttribute('data-desc');
+
+                let imgSrc = '';
+                const imgElement = preview.querySelector('.preview-img');
+
+                // If there is an image, use it. If it's a CSS cert, we might not have a big image.
+                // For now, let's assume we want to show the 'data-image' if available, or the img src.
+
+                if (preview.dataset.image) {
+                    imgSrc = preview.dataset.image;
+                } else if (imgElement) {
+                    imgSrc = imgElement.src;
+                }
+
+                // If no image is available (CSS only cert), we can't show much in a lightbox 
+                // unless we render it or have a fallback. 
+                // User request implies they want to see "diplom" (diploma). 
+                // The current HTML structure has `data-image` on real diplomas.
+
+                if (imgSrc) {
+                    // 1. Prepare Content & Classes (while hidden)
+                    lightboxImg.src = imgSrc;
+                    lightboxCaption.innerHTML = `<strong>${title}</strong><br>${desc}`;
+
+                    // Reset rotation classes
+                    lightboxImg.classList.remove('lb-rotate-90', 'lb-rotate-180', 'lb-rotate-270');
+
+                    // Check for rotation classes on source image and apply to lightbox image
+                    if (imgElement) {
+                        if (imgElement.classList.contains('rotate-90')) lightboxImg.classList.add('lb-rotate-90');
+                        if (imgElement.classList.contains('rotate-180')) lightboxImg.classList.add('lb-rotate-180');
+                        if (imgElement.classList.contains('rotate-270')) lightboxImg.classList.add('lb-rotate-270');
+                    }
+
+                    // 2. Show Lightbox (now that content is ready and styled)
+                    lightbox.classList.add('active');
+                    document.body.style.overflow = 'hidden'; // Disable scroll
+                }
+            });
+        });
+
+        // Close lightbox
+        const closeLightbox = () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+
+        // Close on click outside
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    }
+
+    // Click to Copy Phone Number
+    const copyPhoneBtn = document.getElementById('copy-phone');
+    if (copyPhoneBtn) {
+        copyPhoneBtn.addEventListener('click', () => {
+            const phoneNumber = "606 412 405";
+            navigator.clipboard.writeText(phoneNumber).then(() => {
+                const originalHtml = copyPhoneBtn.innerHTML;
+
+                // Visual feedback - change icon to checkmark
+                copyPhoneBtn.innerHTML = '<svg viewBox="0 0 24 24" width="24" height="24" stroke="#28a745" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                copyPhoneBtn.style.borderColor = "#28a745";
+
+                setTimeout(() => {
+                    copyPhoneBtn.innerHTML = originalHtml;
+                    copyPhoneBtn.style.borderColor = "";
+                }, 2000);
+            });
+        });
+    }
+});
+</script>
+</body>
+
+</html>
