@@ -208,6 +208,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     imgSrc = imgElement.src;
                 }
 
+                // Check for PDF and open in new tab
+                if (imgSrc && imgSrc.toLowerCase().endsWith('.pdf')) {
+                    window.open(imgSrc, '_blank');
+                    return;
+                }
+
                 // If no image is available (CSS only cert), we can't show much in a lightbox 
                 // unless we render it or have a fallback. 
                 // User request implies they want to see "diplom" (diploma). 
