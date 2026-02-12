@@ -565,6 +565,10 @@ body.dark-mode .diploma-card.active {
     border-left: 4px solid #10b981;
 }
 
+.cert-gray {
+    border-left: 4px solid #6b7280;
+}
+
 .cert-gold {
     border-left: 4px solid #f59e0b;
 }
